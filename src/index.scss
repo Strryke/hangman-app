@@ -1,0 +1,284 @@
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  transition: 150ms ease-in-out all;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+$rounded: 10px;
+
+@mixin flexAllCenter($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin buttonStyles {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+body {
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin-bottom: 10px;
+    @media screen and (max-width: 595px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.linksMenu {
+  @include flexAllCenter(row);
+  gap: 8px;
+
+  a {
+    color: black;
+  }
+}
+
+main {
+  @include flexAllCenter(column);
+  min-height: 100vh;
+  padding: 25px 0px;
+}
+
+button {
+  @include buttonStyles();
+}
+
+.howToPlayBox {
+  max-width: 700px;
+  margin-top: 25px;
+  padding: 15px;
+  border: 1px solid #dbdbdb;
+  border-radius: $rounded;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    button {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+.p-is-hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.matchWordLettersContainerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto, minmax(100px, 1fr));
+  gap: 15px;
+  place-items: center;
+
+  @media screen and (max-width: 430px) {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+}
+
+.switchThemeButton {
+  position: fixed;
+  z-index: 5;
+  top: 20px;
+  right: 0;
+
+  width: 65px;
+  height: 65px;
+
+  font-size: 20px;
+
+  border: 2px solid #dbdbdb;
+
+  @media screen and (max-width: 485px) {
+    top: initial;
+    bottom: 12px;
+    right: 10px;
+  }
+}
+
+.darkTheme {
+  background-color: black;
+  h1,
+  h2,
+  h3,
+  label,
+  a {
+    color: white;
+  }
+
+  .howToPlayBox_p {
+    color: white;
+  }
+
+  .container {
+    color: black;
+    background-color: white !important;
+  }
+
+  .matchLetterHolder {
+    background-color: white !important;
+  }
+
+  input:focus {
+    outline: 2px solid #dbdbdb;
+  }
+}
+
+.interactiveSection {
+  @media screen and (max-width: 890px) {
+    @include flexAllCenter(column);
+    flex-direction: column-reverse;
+  }
+}
+
+.gameplaySection {
+  @include flexAllCenter(column);
+}
+
+.gameUISection {
+  @include flexAllCenter(row);
+
+  @media screen and (max-width: 800px) {
+    @include flexAllCenter(column);
+  }
+}
+
+.clueAndWrongLettersSection {
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 800px) {
+    @include flexAllCenter(column);
+    flex-direction: column-reverse !important;
+    gap: 0;
+  }
+}
+
+.lettersSection {
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 800px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.hangmanSection {
+  @include flexAllCenter(column);
+}
+
+.matchLetterHolder {
+  @include flexAllCenter(row);
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  background-color: rgba(235, 235, 235, 0.733);
+  border-bottom: 2px solid #8a8a8a;
+}
+
+.matchWordLettersContainer {
+  @include flexAllCenter(row);
+  gap: 20px;
+
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sendLetterForm {
+  @include flexAllCenter(column);
+  padding: 10px;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  div {
+    input {
+      width: 60px;
+      height: 100%;
+      padding: 10px;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid #8a8a8a;
+      border-radius: $rounded;
+    }
+
+    button {
+      height: 100%;
+      padding: 15px;
+      margin-left: 10px;
+      @media screen and (max-width: 890px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.disabledFormStyles {
+  opacity: 80%;
+  cursor: not-allowed;
+}
+
+.clueMenu {
+  margin: 18px 0px;
+  @media screen and (max-width: 800px) {
+    @include flexAllCenter(column);
+  }
+}
+
+.wrongLettersRecipient {
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    display: flex;
+    min-width: 180px;
+    overflow-x: scroll;
+    min-height: 40px;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
+
+.letterClue {
+  height: fit-content;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: $rounded;
+  text-align: center;
+  background-color: #dbdbdb;
+}
+
+.errorFigure {
+  padding: 10px;
+  margin: 10px 0px;
+
+  border-radius: $rounded;
+  background-color: #dc3545;
+  color: white;
+}
