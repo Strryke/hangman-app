@@ -6,7 +6,7 @@ export default function MatchWordLettersContainer() {
   const { matchWord, matchWordLetters } = useContext(GameContext);
   return (
     <>
-      <div className={`${matchWord.length >= 6 ? "matchWordLettersContainerGrid" : "matchWordLettersContainer"}`}>
+      <div className="flex flex-row w-full justify-between">
         {matchWordLetters.map((letter, index) => (
           <MatchLetterHolder letter={letter} key={index} />
         ))}

@@ -25,16 +25,7 @@ export default function GameApp() {
       <main className={`${themeMode === "dark" ? "darkTheme" : ""}`}>
         <header>
           <h1>Hangman Game</h1>
-          <h2>Created by Jackson Paredes Ferranti</h2>
         </header>
-        <menu className="linksMenu">
-          <a href="https://www.github.com/bkfan1" title="Github profile">
-            <i className="bi bi-github" />
-          </a>
-          <a href="mailto:jacksonpf177@gmail.com" title="Send email">
-            <i className="bi bi-envelope-fill" />
-          </a>
-        </menu>
         <SwitchThemeButton />
 
         <section className="gameplaySection">
@@ -45,7 +36,9 @@ export default function GameApp() {
               remainingGuessingAttempts === 0 ? (
                 <>
                 <h1>The word was: {matchWord}</h1>
-                <button onClick={setMatch} style={{marginTop:"10px"}}>Play again</button>
+                  <button onClick={setMatch} style={{ marginTop: "10px" }}>
+                    Play again
+                  </button>
                 </>
               ) : (
                 ""

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { GameContext } from "../context/GameContext";
 import ErrorFigure from "./ErrorFigure";
 
@@ -60,38 +60,37 @@ export default function SendLetterForm() {
         {error ? <ErrorFigure error={error} /> : ""}
         <label>Letter:</label>
         <div>
-        <input
-          onChange={(e) =>
-            setCurrentSubmitingValue(e.target.value.toUpperCase())
-          }
-          value={currentSubmittingValue}
-          type="text"
-          minLength="1"
-          maxLength="1"
-          disabled={
-            remainingGuessingAttempts === 0 ||
-            guessedLetters.length === matchWordLetters.length
-              ? true
-              : false
-          }
-        />
+          <input
+            autoFocus
+            onChange={(e) =>
+              setCurrentSubmitingValue(e.target.value.toUpperCase())
+            }
+            value={currentSubmittingValue}
+            type="text"
+            minLength="1"
+            maxLength="1"
+            disabled={
+              remainingGuessingAttempts === 0 ||
+              guessedLetters.length === matchWordLetters.length
+                ? true
+                : false
+            }
+          />
 
-        <button
-        title="Send letter"
-          onClick={(e) => handleSubmit(e)}
-          disabled={
-            remainingGuessingAttempts === 0 ||
-            guessedLetters.length === matchWordLetters.length
-              ? true
-              : false
-          }
-          className="sendLetterForm__btn"
-        >
-          <i className="bi bi-send-fill"/>
-        </button>
-
+          <button
+            title="Send letter"
+            onClick={(e) => handleSubmit(e)}
+            disabled={
+              remainingGuessingAttempts === 0 ||
+              guessedLetters.length === matchWordLetters.length
+                ? true
+                : false
+            }
+            className="sendLetterForm__btn"
+          >
+            <i className="bi bi-send-fill" />
+          </button>
         </div>
-        
       </form>
     </>
   );
