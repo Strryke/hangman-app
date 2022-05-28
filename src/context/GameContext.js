@@ -46,7 +46,6 @@ export const GameProvider = ({ children }) => {
           break;
         default:
           throw Error(`Nice attempt trying to break the game :D`);
-          break;
       }
     };
 
@@ -100,23 +99,18 @@ export const GameProvider = ({ children }) => {
           hangmanImage,
           themeMode,
           handleClickThemeMode,
-
           matchWord,
           matchWordLetters,
           guessedLetters,
           wrongLetters,
           setWrongLetters,
-
           remainingGuessingAttempts,
           setRemainingGuessingAttempts,
           setGuessedLetters,
-
           clueCounter,
           setClueCounter,
-
           letterClue,
           setLetterClue,
-
           error,
           setError,
         }}
